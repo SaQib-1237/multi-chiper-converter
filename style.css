@@ -1,42 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
 body {
-  font-family: Arial;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  color: white;
-  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Modern gradient background */
+  background: linear-gradient(135deg, #0f172a, #1e3c72, #2563eb);
 }
 
+/* MAIN CARD */
 .container {
-  width: 50%;
-  margin: 50px auto;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 12px;
-}
-
-textarea {
   width: 90%;
-  height: 100px;
-  margin: 10px;
-  padding: 10px;
+  max-width: 520px;
+
+  padding: 25px;
+  border-radius: 16px;
+
+  /* Glass effect */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+
+  /* Shadow for depth */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+
+  text-align: center;
+  color: white;
+
+  animation: fadeIn 0.6s ease-in-out;
 }
 
+/* TITLE */
+h1 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* INPUTS */
+textarea,
 select,
 input {
-  padding: 10px;
-  margin: 10px;
-}
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
 
-button {
-  padding: 10px 20px;
-  background: #00c6ff;
   border: none;
-  color: white;
-  cursor: pointer;
+  border-radius: 10px;
+
+  outline: none;
+  font-size: 14px;
 }
 
+/* TEXTAREA SPECIAL */
+textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* FOCUS EFFECT */
+textarea:focus,
+input:focus,
+select:focus {
+  outline: 2px solid #38bdf8;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+
+  margin-top: 10px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  color: white;
+  font-size: 16px;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* RESULT BOX */
 .result {
   margin-top: 20px;
-  background: #222;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 15px;
+
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.4);
+
+  word-break: break-word;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 500px) {
+  .container {
+    padding: 18px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
 }
