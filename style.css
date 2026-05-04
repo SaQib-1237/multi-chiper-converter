@@ -10,7 +10,7 @@ body {
   margin: 50px auto;
   padding: 20px;
   background: rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 textarea {
