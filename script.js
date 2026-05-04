@@ -1,23 +1,26 @@
 function caesarCipher(text, shift) {
   let result = "";
+
   for (let char of text) {
     if (char >= "A" && char <= "Z") {
       result += String.fromCharCode(
-        ((char.charCodeAt(0) + shift - 65) % 26) + 65,
+        ((char.charCodeAt(0) - 65 + shift) % 26) + 65,
       );
     } else if (char >= "a" && char <= "z") {
       result += String.fromCharCode(
-        ((char.charCodeAt(0) + shift - 97) % 26) + 97,
+        ((char.charCodeAt(0) - 97 + shift) % 26) + 97,
       );
     } else {
       result += char;
     }
   }
+
   return result;
 }
 
 function atbashCipher(text) {
   let result = "";
+
   for (let char of text) {
     if (char >= "A" && char <= "Z") {
       result += String.fromCharCode(90 - (char.charCodeAt(0) - 65));
@@ -27,6 +30,7 @@ function atbashCipher(text) {
       result += char;
     }
   }
+
   return result;
 }
 
@@ -50,19 +54,19 @@ function convert() {
   const option = document.getElementById("option").value;
   const shift = parseInt(document.getElementById("shift").value) || 0;
 
-  let result = "";
+  let output = "";
 
   if (option === "caesar") {
-    result = caesarCipher(text, shift);
+    output = caesarCipher(text, shift);
   } else if (option === "atbash") {
-    result = atbashCipher(text);
+    output = atbashCipher(text);
   } else if (option === "base64") {
-    result = base64Encode(text);
+    output = base64Encode(text);
   } else if (option === "binary") {
-    result = textToBinary(text);
+    output = textToBinary(text);
   } else if (option === "reverse") {
-    result = reverseText(text);
+    output = reverseText(text);
   }
 
-  document.getElementById("output").innerText = result;
+  document.getElementById("output").innerText = output;
 }
